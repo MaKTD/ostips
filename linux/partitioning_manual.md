@@ -88,6 +88,10 @@ If your are installing new system you probably want to mount filesystem on which
 mount /dev/disk/by-label/label /mnt
 # mount by partition
 mount /dev/partition /mnt
+
+# tipical commands
+mount /dev/disk/by-label/BOOT /mnt/boot
+mount /dev/disk/by-lable/ROOT /mnt/
 ```
 
 
