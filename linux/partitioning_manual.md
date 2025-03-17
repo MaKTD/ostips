@@ -68,6 +68,29 @@ parted /dev/sda -- set 3 esp on
 # see nix os exampes is links for how to go with parted and mbr 
 ```
 
+### Formatting
+After partitioning is done, if not done automatically the partitions should be formatted.
+```sh
+# format EFI partition
+mkfs.fat -F 32 -n BOOT /dev/paritition
+# format root and home
+mkfs.ext4 -L ROOT /dev/partition
+mkfs.ext4 -L HOME /dev/partition
+```
+
+
+
+### Mounting
+After paritiioning and formatting is done, then you can mount filesystems.
+If your are installing new system you probably want to mount filesystem on which your os will be running.
+```sh
+# mount by label
+mount /dev/disk/by-label/label /mnt
+# mount by partition
+mount /dev/partition /mnt
+```
+
+
 ### Links
 * [general info about partitioning](https://wiki.archlinux.org/title/Partitioning)
 * [nix os great examples of how to go with parted](https://nixos.org/manual/nixos/stable/#sec-installation-manual-partitioning)
